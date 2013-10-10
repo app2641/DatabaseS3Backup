@@ -1,0 +1,6 @@
+.DS_Store
+.git
+.gitignore
+configs/aws.ini.orig
+configs/databases.ini.orig
+configs/deploy.ini.orig

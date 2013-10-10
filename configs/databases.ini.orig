@@ -1,0 +1,4 @@
+user=root
+password=root
+
+databases[]=hoge_database

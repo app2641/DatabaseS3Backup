@@ -1,0 +1,8 @@
+[localhost]
+  host=localhost
+  port=22
+  user=root
+  dir=/home/root/DatabaseS3Backup/
+  type=rsync
+  parameters='--verbose -rltgoD --exclude-from='
+  key="-i /Users/%s/.ssh/backup.pem"
