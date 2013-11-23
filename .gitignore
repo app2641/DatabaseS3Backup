@@ -4,5 +4,7 @@ configs/aws.ini
 configs/databases.ini
 configs/deploy.ini
 
+data/*
+
 library/composer/vendor
 

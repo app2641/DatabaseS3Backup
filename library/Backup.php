@@ -95,8 +95,8 @@ class Backup
                     try {
                         $this->client->putObject(
                             array(
-                                'Bucket', $this->bucket,
-                                'Key' => 'Backup/'.$name.'/'.$file_name.'.gz'
+                                'Bucket' => $this->bucket,
+                                'Key' => 'Backup/'.$name.'/'.$file_name.'.gz',
                                 'Body' => EntityBody::factory(fopen($file_path, 'r'))
                             )
                         );
