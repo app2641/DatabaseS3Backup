@@ -101,6 +101,14 @@ class Backup
                             )
                         );
 
+                        $this->client->putObject(
+                            array(
+                                'Bucket' => $this->bucket.'-glacier',
+                                'Key' => 'Backup/'.$name.'/'.$file_name.'.gz',
+                                'Body' => EntityBody::factory(fopen($file_path, 'r'))
+                            )
+                        );
+
                         unlink($file_path);
 
                     } catch (\Exception $e) {
