@@ -18,6 +18,16 @@ class Backup
 
 
     /**
+     * Glacierクライアント
+     *
+     * @param 
+     * @return 
+     **/
+    protected $glacier;
+
+
+
+    /**
      * バックアップデータを保存するバケット名
      *
      * @author app2641
@@ -55,6 +65,14 @@ class Backup
                 'key' => $ini['key'],
                 'secret' => $ini['secret'],
                 'region' => Region::AP_NORTHEAST_1
+            )
+        );
+
+        $this->glacier = S3Client::factory(
+            array(
+                'key' => $ini['key'],
+                'secret' => $ini['secret'],
+                'region' => Region::US_EAST_1
             )
         );
     }
@@ -101,7 +119,7 @@ class Backup
                             )
                         );
 
-                        $this->client->putObject(
+                        $this->glacier->putObject(
                             array(
                                 'Bucket' => $this->bucket.'-glacier',
                                 'Key' => 'Backup/'.$name.'/'.$file_name.'.gz',
